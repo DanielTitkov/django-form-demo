@@ -1,0 +1,18 @@
+<h1>Huusers</h1>
+{% if huusers %}
+<ul>
+{% for hu in huusers %}
+    <li>{{ hu.first_name }} {{ hu.last_name }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<h2>No huusers</h2>
+{% endif %}
+<h3>Add MOAR huusers!</h3>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</div>
